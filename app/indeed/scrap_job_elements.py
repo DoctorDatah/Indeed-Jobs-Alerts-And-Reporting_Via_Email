@@ -45,19 +45,19 @@ def get_individual_job(soup):
     logging.info("Job details extracted Raw Dataframe based on tr.")
     logging.info(f"Job DataFrame:\n{tr_df}")
 
-    # Save DataFrame for validation
-    temp_title_for_save = tr_df[tr_df['Number'] == 1]['Data 1'].iloc[0]
-    filename = f"{temp_title_for_save}.csv" 
-    tr_df.to_csv(
-        filename,
-        index=False,
-        quoting=csv.QUOTE_ALL,
-        quotechar='"',
-        escapechar='\\',
-        lineterminator='\n',
-        sep=',',
-        encoding='utf-8',
-    )
+    # # Save DataFrame for validation
+    # temp_title_for_save = tr_df[tr_df['Number'] == 1]['Data 1'].iloc[0]
+    # filename = f"{temp_title_for_save}.csv" 
+    # tr_df.to_csv(
+    #     filename,
+    #     index=False,
+    #     quoting=csv.QUOTE_ALL,
+    #     quotechar='"',
+    #     escapechar='\\',
+    #     lineterminator='\n',
+    #     sep=',',
+    #     encoding='utf-8',
+    # )
 
     job_data = {
         "title": None,
