@@ -63,9 +63,9 @@ project-root/
 - **[`raw_data_reporting.py`](app/reporting/raw_data_reporting.py)**: Contains functions for generating reports from the raw job data.
 
 ### [`app`](app) Module
-- **`dashboard.py`**: Creates and runs the Dash application for visualizing job data.
-- **[`main.py`](app/dashboard.py)**: Entry point for the application, handles initialization and starts the email fetching process.
-- **`watchdog.py`**: Monitors and restarts the main script if it crashes.
+- **[`dashboard.py`](app/dashboard.py)**: Creates and runs the Dash application for visualizing job data.
+- **[`main.py`](app/main.py)**: Entry point for the application, handles initialization and starts the email fetching process.
+- **[`watchdog.py`](app/watchdog.py)**: Monitors and restarts the main script if it crashes.
 
 ## Future Improvements
 - **Multi-Source Support**: Extend the project to support multiple email sources and job posting formats.
