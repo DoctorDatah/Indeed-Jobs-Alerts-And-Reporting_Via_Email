@@ -1,5 +1,6 @@
 data/
 logs/
+.secrets/
 # Ignore Python cache files
 __pycache__/
 *.pyc
