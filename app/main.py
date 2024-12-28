@@ -15,6 +15,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__)) # Move up two levels to 
 working_dir = os.path.abspath(os.path.join(script_dir, '..')) # Change the working directory
 os.chdir(working_dir)
 logging.info(f"Working directory set to: {working_dir}")
+token_file_path = "./.sercrets/token.json"
 
 
 # Constants
@@ -23,11 +24,20 @@ ERROR_NOTIFICATION_EMAIL = "malikhqtech@gmail.com"
 
 if __name__ == "__main__":
     try:
-        # Authenticate Gmail API
+        # Step 1: Delete the token file so enforce fresh authentication
+        if os.path.exists(token_file_path):
+            # Delete the file
+            os.remove(token_file_path)
+            print(f"{token_file_path} has been deleted.")
+        else:
+            print(f"The file {token_file_path} does not exist.")
+            
+            
+        # Step 2: Authenticate Gmail API
         service = indeed.gmail_auth.authenticate_gmail()
         print("Gmail API authenticated successfully!")
 
-        # Start email fetch listener
+        # Step 3: Start email fetch listener (Loops forever)
         indeed.gmail_listener.start_email_fetch(
             service, 
             SEARCH_SENDERS, 
