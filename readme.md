@@ -1,7 +1,7 @@
 # Job Scraping and Reporting Project
 
 ## Motivation
-The primary motivation for this project is to automate the process of scraping job postings from emails, extracting relevant job details, and presenting the data in a structured and user-friendly manner. This project aims to save time and effort for job seekers (primaly for my own use) and recruiters by automating the tedious task of manually parsing job emails and compiling job data.
+Job hunting can be tedious and time-consuming, especially when companies post shadow jobs or when customizing job applications. Knowing the job posting history of a company can help determine whether it is worth investing time in the application process. This project aims to track companies of interest over the long term and provide alerts in a report for jobs that are fresh within 24 hours. Primarily, this project is designed to help myself by automating the process of scraping job postings from emails, extracting relevant job details, and presenting the data in a structured and user-friendly manner. This automation saves time and effort for job seekers and recruiters by eliminating the need to manually parse job emails and compile job data.
 
 ## What This Project Does
 This project automates the process of:
@@ -18,8 +18,31 @@ This project automates the process of:
 
 ## Project Structure
 The project is structured as follows:
-. ├── .archieve/ ├── .secrets/ ├── .venv_job_scrap/ ├── app/ │ ├── indeed/ │ ├── reporting/ │ ├── init.py │ ├── dashboard.py │ ├── main.py │ ├── watchdog.py ├── data/ │ ├── emails/ │ ├── failed_emails/ ├── logs/ ├── requirements.txt ├── usecases/
-
+```
+project-root/
+├── .archive/
+├── .secrets/
+├── .venv_job_scrap/
+├── app/
+│   ├── indeed/
+│   │   ├── scrap_job_blocks.py
+│   │   ├── scrap_job_elements.py
+│   │   ├── scrap_overall.py
+│   │   ├── gmail_auth.py
+│   │   ├── gmail_listener.py
+│   ├── reporting/
+│   │   ├── raw_data_reporting.py
+│   ├── __init__.py
+│   ├── dashboard.py
+│   ├── main.py
+│   ├── watchdog.py
+├── data/
+│   ├── emails/
+│   ├── failed_emails/
+├── logs/
+├── requirements.txt
+├── usecases/
+```
 
 ### Watchdog Module and Main
 - **Watchdog Module**: The [`app/watchdog.py`](app/watchdog.py) script monitors and restarts the main script if it crashes. It ensures the continuous operation of the email fetching and processing system.
