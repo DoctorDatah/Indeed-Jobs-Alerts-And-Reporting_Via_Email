@@ -19,8 +19,7 @@ This project automates the process of:
 ## Project Structure
 The project is structured as follows:
 ```
-Indeed-Jobs-Alerts-And-Reporting_Via_Email
-/
+Indeed-Jobs-Alerts-And-Reporting_Via_Email/
 ├── .archive/
 ├── .secrets/
 ├── .venv_job_scrap/
