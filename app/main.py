@@ -15,7 +15,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__)) # Move up two levels to 
 working_dir = os.path.abspath(os.path.join(script_dir, '..')) # Change the working directory
 os.chdir(working_dir)
 logging.info(f"Working directory set to: {working_dir}")
-token_file_path = "./.sercrets/token.json"
+token_file_path = os.path.join(working_dir, r'.secrets','token.json') 
 
 
 # Constants
@@ -24,7 +24,7 @@ ERROR_NOTIFICATION_EMAIL = "malikhqtech@gmail.com"
 
 if __name__ == "__main__":
     try:
-        # Step 1: Delete the token file so enforce fresh authentication
+        # Step 1: Delete the token file if exists so enforce fresh authentication when program first executes
         if os.path.exists(token_file_path):
             # Delete the file
             os.remove(token_file_path)
