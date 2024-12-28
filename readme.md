@@ -73,5 +73,17 @@ project-root/
 - **Machine Learning**: Implement machine learning models to categorize and rank job postings based on user preferences.
 - **Notification System**: Add a notification system to alert users of new job postings.
 
+## Requirements
+- **Python Version**: This project uses Python version 3.13.1.
+- **Libraries**:
+  - `pandas`: For data manipulation and analysis.
+  - `dash`: For creating the dashboard application.
+  - `flask`: For serving the dashboard.
+  - `google-auth`: For handling Gmail authentication.
+  - `google-api-python-client`: For interacting with the Gmail API.
+  - `watchdog`: For monitoring and restarting the main script.
+  - `requests`: For making HTTP requests.
+  - `beautifulsoup4`: For parsing HTML content.
+
 ## Contact
-For any questions or support, please contact Malik Hassan Qayyum at malikhqtech@gmail.com.
+For any questions or support, please contact Malik Hassan Qayyum via [LinkedIn](https://www.linkedin.com/in/malik-hassan-qayyum/).
