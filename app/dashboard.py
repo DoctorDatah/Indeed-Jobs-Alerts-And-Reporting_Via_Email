@@ -5,13 +5,14 @@ import dash
 from dash import dcc, html, dash_table
 from dash.dependencies import Input, Output
 from datetime import datetime
+import reporting.raw_data_reporting   
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 
 # Get the directory of the current script
 script_dir = os.path.dirname(os.path.abspath(__file__))
-working_dir = os.path.abspath(os.path.join(script_dir, '..', '..'))
+working_dir = os.path.abspath(os.path.join(script_dir, '..'))
 os.chdir(working_dir)
 logging.info(f"Working directory set to: {working_dir}")
 
@@ -25,53 +26,6 @@ class RawData:
         """Load raw data from the directory."""
         files = [f for f in os.listdir(data_dir) if f.endswith('.csv')]
         return files
-
-class pure_csv_data:
-    @staticmethod
-    def pre_processed_load_data(data_dir, top_n=3):
-        """Load and combine data from the top N recent months."""
-        files = [f for f in os.listdir(data_dir) if f.endswith('_pre_processed.csv')]
-        file_details = [(f, f.split('_')[0], f.split('_')[1]) for f in files]
-        file_details = sorted(file_details, key=lambda x: (x[1], x[2]), reverse=True)[:top_n]
-
-        combined_data = []
-        for file, year, month in file_details:
-            df = pd.read_csv(os.path.join(data_dir, file))
-            combined_data.append(df)
-
-        if combined_data:
-            data = pd.concat(combined_data)
-            if 'days_posted' in data.columns:
-                data = data.sort_values(by='days_posted')
-            else:
-                raise ValueError("Expected column 'days_posted' not found in the dataset.")
-        else:
-            data = pd.DataFrame()
-
-        return data
-
-    @staticmethod
-    def raw_processed_load_data(raw_processed_dir, top_n=3):
-        """Load and combine data from the top N recent months in the raw processed directory."""
-        files = [f for f in os.listdir(raw_processed_dir) if f.endswith('.csv')]
-        file_details = [(f, f.split('_')[0], f.split('_')[1]) for f in files]
-        file_details = sorted(file_details, key=lambda x: (x[1], x[2]), reverse=True)[:top_n]
-
-        combined_data = []
-        for file, year, month in file_details:
-            df = pd.read_csv(os.path.join(raw_processed_dir, file))
-            combined_data.append(df)
-
-        if combined_data:
-            data = pd.concat(combined_data)
-            if 'days_posted' in data.columns:
-                data = data.sort_values(by='days_posted')
-            else:
-                raise ValueError("Expected column 'days_posted' not found in the dataset.")
-        else:
-            data = pd.DataFrame()
-
-        return data
 
 
 class Dashboard:
@@ -108,8 +62,8 @@ class Dashboard:
         )
         def render_menu_content(selected_menu, n_clicks):
             try:
-                pre_processed_data = pure_csv_data.pre_processed_load_data(data_dir)
-                raw_processed_data = pure_csv_data.raw_processed_load_data(raw_processed_dir)
+                pre_processed_data = reporting.raw_data_reporting.pre_processed_load_data(data_dir)
+                raw_processed_data = reporting.raw_data_reporting.raw_processed_load_data(raw_processed_dir)
 
                 refresh_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 refresh_status = f"Last refresh: {refresh_time} - Success"
@@ -156,8 +110,8 @@ class Dashboard:
             Input('vertical-tabs', 'value')
         )
         def render_vertical_tab_content(selected_tab):
-            pre_processed_data = pure_csv_data.pre_processed_load_data(data_dir)
-            raw_processed_data = pure_csv_data.raw_processed_load_data(raw_processed_dir)
+            pre_processed_data = reporting.raw_data_reporting.pre_processed_load_data(data_dir)
+            raw_processed_data = reporting.raw_data_reporting.raw_processed_load_data(raw_processed_dir)
 
             if selected_tab == 'tab-1':
                 return html.Div([
