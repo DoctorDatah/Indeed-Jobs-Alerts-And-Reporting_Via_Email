@@ -17,6 +17,8 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 working_dir = os.path.abspath(os.path.join(script_dir, '..', '..'))
 os.chdir(working_dir)
 logging.info(f"Working directory set to: {working_dir}")
+raw_directory = './data/raw'
+
 
 def scrap_process_email_content_to_csv(soup):
     """
@@ -72,11 +74,10 @@ def results_create_or_append_to_csv(dataframe, reset_file=False):
         reset_file (bool): If True, resets the file and writes the DataFrame as a fresh file.
     """
     try:
-        directory = './data/raw_processed'
-        os.makedirs(directory, exist_ok=True)
+        os.makedirs(raw_directory, exist_ok=True)
 
         current_year_month = datetime.now().strftime('%Y_%m')
-        file_path = os.path.join(directory, f'{current_year_month}.csv')
+        file_path = os.path.join(raw_directory, f'{current_year_month}.csv')
 
         if reset_file or not os.path.exists(file_path):
             dataframe.to_csv(file_path, mode='w', header=True, index=False)

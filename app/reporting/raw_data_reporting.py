@@ -1,3 +1,6 @@
+
+# This module is directly based of the interm data
+
 import os
 import logging
 import pandas as pd
@@ -6,7 +9,7 @@ from datetime import datetime
 
 def pre_processed_load_data(data_dir, top_n=3):
     """Load and combine data from the top N recent months."""
-    files = [f for f in os.listdir(data_dir) if f.endswith('_pre_processed.csv')]
+    files = [f for f in os.listdir(data_dir) if f.endswith('intermediate.csv')]
     file_details = [(f, f.split('_')[0], f.split('_')[1]) for f in files]
     file_details = sorted(file_details, key=lambda x: (x[1], x[2]), reverse=True)[:top_n]
 

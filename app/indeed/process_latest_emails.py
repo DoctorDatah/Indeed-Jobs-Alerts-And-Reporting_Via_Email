@@ -66,7 +66,7 @@ def process_emails_with_transaction(service, senders, error_recipient):
         
         # Call the deduplication function after processing all emails
         try:
-            indeed.process_remove_duplicates.raw_csv_to_pre_processed_data()
+            indeed.process_remove_duplicates.raw_csv_to_inter_csv()
         except Exception as e:
             logging.error(f"Error during deduplication process: {e}", exc_info=True)
        

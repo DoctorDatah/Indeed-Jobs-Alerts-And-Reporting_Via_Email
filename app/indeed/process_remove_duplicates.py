@@ -3,10 +3,10 @@ import pandas as pd
 from pathlib import Path
 
 # Define global variables
-RAW_DATA_DIR = "./data/raw_processed/"
-PREPROCESSED_DATA_DIR = "./data/pre_processed/"
+RAW_DATA_DIR = "./data/raw/"
+PREPROCESSED_DATA_DIR = "./data/intermediate/"
 
-def raw_csv_to_pre_processed_data():
+def raw_csv_to_inter_csv():
     """
     Processes the latest CSV file from the raw data directory by removing duplicates and saving the result.
 
@@ -32,7 +32,7 @@ def raw_csv_to_pre_processed_data():
     data_deduplicated = data.drop_duplicates(subset=columns_to_check, keep='first')
 
     # Save the deduplicated DataFrame to the preprocessed directory
-    output_file = os.path.join(PREPROCESSED_DATA_DIR, latest_csv.replace('.csv', '_pre_processed.csv'))
+    output_file = os.path.join(PREPROCESSED_DATA_DIR, latest_csv.replace('.csv', '_intermediate.csv'))
     data_deduplicated.to_csv(output_file, index=False)
 
 # Example usage
