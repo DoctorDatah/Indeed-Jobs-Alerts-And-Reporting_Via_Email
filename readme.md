@@ -85,5 +85,50 @@ Indeed-Jobs-Alerts-And-Reporting_Via_Email/
   - `requests`: For making HTTP requests.
   - `beautifulsoup4`: For parsing HTML content.
 
+## How to Use This Code
+
+1. **Clone the Repository**:
+   ```sh
+   git clone https://github.com/DoctorDatah/Indeed-Jobs-Alerts-And-Reporting_Via_Email
+   cd Indeed-Jobs-Alerts-And-Reporting_Via_Email
+   ```
+
+2. **Set Up Google Cloud Platform (GCP)**:
+   - Enable the Gmail API.
+   - Create OAuth 2.0 credentials.
+   - Download the credentials file and place it under `.secrets/credentials.json`.
+
+3. **Install Python 3.13.1**:
+   - Ensure Python 3.13.1 is installed on your system.
+
+4. **Set Up Virtual Environment**:
+   ```sh
+   python -m venv .venv_job_scrap
+   .\.venv_job_scrap\Scripts\activate
+   ```
+
+5. **Install Required Libraries**:
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+6. **Update Alert Receiving Email**:
+   - Open `app/main.py` and update the email address where you want to receive alerts.
+
+7. **Run the Application**:
+   - Execute the `watchdog.py` script to start the application.
+   ```sh
+   python app/watchdog.py
+   ```
+
+8. **Create Indeed Alerts**:
+   - Go to indeed.com and create job alerts using the same email address you used for Gmail authentication.
+
+9. **Launch the Dashboard**:
+   - Run the `dashboard.py` script to launch the dashboard for visualizing job data.
+   ```sh
+   python app/dashboard.py
+   ```
+
 ## Contact
 For any questions or support, please contact Malik Hassan Qayyum via [LinkedIn](https://www.linkedin.com/in/malik-hassan-qayyum/).
