@@ -1,7 +1,7 @@
 # Job Scraping and Reporting Project
 
 ## Motivation
-The primary motivation for this project is to automate the process of scraping job postings from emails, extracting relevant job details, and presenting the data in a structured and user-friendly manner. This project aims to save time and effort for job seekers and recruiters by automating the tedious task of manually parsing job emails and compiling job data.
+The primary motivation for this project is to automate the process of scraping job postings from emails, extracting relevant job details, and presenting the data in a structured and user-friendly manner. This project aims to save time and effort for job seekers (primaly for my own use) and recruiters by automating the tedious task of manually parsing job emails and compiling job data.
 
 ## What This Project Does
 This project automates the process of:
