@@ -28,7 +28,7 @@ def raw_csv_to_inter_csv():
     data = pd.read_csv(file_path)
 
     # Remove duplicates based on specific columns
-    columns_to_check = ['title', 'link', 'company', 'days_posted']
+    columns_to_check = ['title', 'link', 'company']
     data_deduplicated = data.drop_duplicates(subset=columns_to_check, keep='first')
 
     # Save the deduplicated DataFrame to the preprocessed directory
