@@ -17,15 +17,8 @@ os.chdir(working_dir)
 logging.info(f"Working directory set to: {working_dir}")
 
 # Global file paths
-data_dir = os.path.join(working_dir, 'data', 'pre_processed')
-raw_processed_dir = os.path.join(working_dir, 'data', 'raw_processed')
-
-class RawData:
-    @staticmethod
-    def load_raw_data(data_dir):
-        """Load raw data from the directory."""
-        files = [f for f in os.listdir(data_dir) if f.endswith('.csv')]
-        return files
+data_dir = os.path.join(working_dir, 'data', 'intermediate')
+raw_processed_dir = os.path.join(working_dir, 'data', 'raw')
 
 
 class Dashboard:
