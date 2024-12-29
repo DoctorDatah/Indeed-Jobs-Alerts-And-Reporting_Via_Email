@@ -67,6 +67,14 @@ Indeed-Jobs-Alerts-And-Reporting_Via_Email/
 - **[`main.py`](app/main.py)**: Entry point for the application, handles initialization and starts the email fetching process.
 - **[`watchdog.py`](app/watchdog.py)**: Monitors and restarts the main script if it crashes.
 
+## Current Limitations
+- **Gmail Authentication**: The project uses OAuth for Gmail authentication. Since a personal Gmail account is used, domain-level delegation is not possible. This means that a service account, which would allow for more seamless and automated authentication, cannot be utilized. Instead, the user must manually authenticate using OAuth, which can be less convenient and requires periodic re-authentication.
+- **Docker Authentication**: Authenticating from Docker to an external browser has not been resolved. This limitation arises because the OAuth process typically involves opening a browser window for the user to log in and grant permissions. When running the application inside a Docker container, it is challenging to handle this browser-based authentication flow, which may cause issues when trying to authenticate Gmail from within Docker. As a result, running the application in a Docker container may not be fully supported at this time.
+
+## Ports to be Available
+- **Dashboard**: The Dash application runs on port `8050`.
+- **Main Application**: The main application runs on port `8080`.
+
 ## Future Improvements
 - **Multi-Source Support**: Extend the project to support multiple email sources and job posting formats.
 - **Enhanced Visualization**: Add more visualization options and interactive features to the dashboard.
