@@ -145,7 +145,7 @@ Here are some screenshots showcasing the program and the dashboard:
 ![Dashboard](images/dashbord_image_1.png)
 
 ### Email Alerts Listener
-![Email Alerts Listener](images/Terminal.png)
+![Email Alerts Listener](images/listener_terminal.png)
 
 ## Contact
 For any questions or support, please contact Malik Hassan Qayyum via [LinkedIn](https://www.linkedin.com/in/malik-hassan-qayyum/).
