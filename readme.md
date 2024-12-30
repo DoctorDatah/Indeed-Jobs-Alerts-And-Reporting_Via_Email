@@ -138,5 +138,14 @@ Indeed-Jobs-Alerts-And-Reporting_Via_Email/
    python app/dashboard.py
    ```
 
+## Screenshots
+Here are some screenshots showcasing the program and the dashboard:
+
+### Dashboard 
+![Dashboard](images/dashbord_image_1.png)
+
+### Email Alerts Listener
+![Email Alerts Listener](images/Terminal.png)
+
 ## Contact
 For any questions or support, please contact Malik Hassan Qayyum via [LinkedIn](https://www.linkedin.com/in/malik-hassan-qayyum/).
